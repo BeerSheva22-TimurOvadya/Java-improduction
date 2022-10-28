@@ -17,7 +17,7 @@ public class BitOperations {
 		if ((number & mask) == 0) {
 			res = 0;
 		}else {
-			res =1;
+			res = 1;
 		}
 	}
 	return res;
@@ -34,8 +34,16 @@ public class BitOperations {
      * @return number in which value of nBit'h bit will have a given value
      */
     static public long setBitValue(long number, int nBit, boolean value) {
-    	//TODO
-    	return -1;
+    	int res = -1;
+    	if (checkNbit (nBit)) {
+    		long mask = 1 << nBit; //all bits are 0 except bit with number nBit
+    		if (value) {
+    			res = (int) (mask | number);
+    		}else {
+    			res ^= (int) (mask | ~number);
+    		}
+    	}
+    	return res;
     }
     /**
      * 
@@ -44,7 +52,12 @@ public class BitOperations {
      * @return new number in which nBit'h will be reverted (old value - 1, new value - 0)
      */
     static public long revertBitValue(long number, int nBit) {
-    	//TODO
-    	return -1;
+    	int res = -1;
+    	if (checkNbit (nBit)) {
+    		long mask = 1 << nBit; //all bits are 0 except bit with number nBit
+    		for(int i=0; i < number; ++i)
+    			res = (int) (mask ^ (i+1));
+    	}
+    	return res;
     }
 }
