@@ -2,7 +2,6 @@
 /**
  * right nBit value [0, 63]
  * all methods will return -1 in the case of wrong nBit value
- *
  */
 public class BitOperations {
 /**
