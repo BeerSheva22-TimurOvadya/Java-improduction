@@ -25,6 +25,8 @@ class PrimitivesTest {
 		int a = 10;
 		assertEquals (13, a + 3);
 		assertEquals (1, a % 3);
+		sdff
+		
 		int number = 123;
 		assertEquals(3, getThirdDigit(number));
 		assertEquals(2, getSecondDigit(number));
