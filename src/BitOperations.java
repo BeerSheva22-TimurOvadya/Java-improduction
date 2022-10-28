@@ -19,8 +19,6 @@ public class BitOperations {
 			res = 0;
 		}else {
 			res =1;
-			dkfj
-			
 		}
 	}
 	return res;
