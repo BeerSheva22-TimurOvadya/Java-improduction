@@ -43,19 +43,21 @@ class PrimitivesTest {
 		assertEquals(0, BitOperations.getBitValue(num, 1));
 		assertEquals(1, BitOperations.getBitValue(num, 2));
 		assertEquals(-1, BitOperations.getBitValue(num, 100));
-		assertEquals(-1, BitOperations.getBitValue(num, -2));		
+		assertEquals(-1, BitOperations.getBitValue(num, -2));
+		
 	}
 	@Test
 	void setBitValueTest() {
 		long num = 0x3ab7f5; //001110101011011111_1_10101
-		assertEquals(0x3ab7e5, BitOperations.setBitValue(num, 4, false));
-		assertEquals(0x3ab7f5, BitOperations.setBitValue(num, 4, true));
+		assertEquals(0x3ab7d5, BitOperations.setBitValue(num, 5, false));
+		assertEquals(0x3ab7f5, BitOperations.setBitValue(num, 5, true));
 	}
 	@Test
-	void revertBitValueTest() {
+	void negateBitValueTest() {
 		long number = 0x3ab7f5; //001110101011011111_1_10101
-		assertEquals(0x3ab7e5, BitOperations.revertBitValue(number, 4));
-		assertEquals(0x3ab7f4, BitOperations.revertBitValue(number, 0));
+		assertEquals(0x3ab7d5, BitOperations.negateBitValue(number, 5));
+		assertEquals(0x3ab7f4, BitOperations.negateBitValue(number, 0));
+		
 	}
 	
 }
