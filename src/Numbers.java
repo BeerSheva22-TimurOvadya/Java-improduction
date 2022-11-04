@@ -34,7 +34,6 @@ static public boolean isHappyNumber(int number) {
 	return HappyNum ;
 }
 
-
 }
 
     

@@ -78,8 +78,7 @@ private static long getMask(int nBit) {
     		res++;
     	}
     	return res;
-    }
-    
+    }    
     static public int onesInNumber(long number) {
     	int res = 0;
     	for (int i = 0; i < N_BITS; i++) {

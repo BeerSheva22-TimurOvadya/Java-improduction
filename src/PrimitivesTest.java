@@ -104,7 +104,7 @@ class PrimitivesTest {
 		assertEquals(0, BitOperations.onesInNumber(0));
 		assertEquals(1, BitOperations.onesInNumber(64)); 
 		assertEquals(64, BitOperations.onesInNumber(-1));
-		assertEquals(10, BitOperations.onesInNumber(10236045)); 
+		assertEquals(10, BitOperations.onesInNumber(10236046)); 
 	}
 
 }

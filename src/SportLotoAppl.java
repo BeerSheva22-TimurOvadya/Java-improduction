@@ -18,7 +18,6 @@
 //		return (int) (min + Math.random() * (max - min +1 ));
 //	}
 //}
-
 public class SportLotoAppl {
 	public static void main(String[] args) {
 
