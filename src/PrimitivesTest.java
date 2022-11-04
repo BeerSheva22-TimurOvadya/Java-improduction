@@ -60,9 +60,7 @@ class PrimitivesTest {
 		long number = 0x3ab7f5; //001110101011011111_1_10101
 		assertEquals(0x3ab7d5, BitOperations.invertBitValue(number, 5));
 		assertEquals(0x3ab7f4, BitOperations.invertBitValue(number, 0));
-		
-        number = -1;
-		
+		number = -1;
 		assertEquals(1, BitOperations.getBitValue(number, 63));
 		number = BitOperations.invertBitValue(number, 63);
 		assertEquals(0, BitOperations.getBitValue(number, 63));
@@ -71,19 +69,42 @@ class PrimitivesTest {
 	
 	@Test
 	void digitsNumberTest() {
-		//TODO
+		assertEquals(1, Numbers.getNdigits(9));
+		assertEquals(2, Numbers.getNdigits(99));
+		assertEquals(4, Numbers.getNdigits(02305));
+		assertEquals(5, Numbers.getNdigits(12345));
+		assertEquals(9, Numbers.getNdigits(987654321));
 	}
 	
 	@Test
 	void leadingZerosTest() {
-		//TODO
+		assertEquals(0, BitOperations.leadingZeros(-9));
+		assertEquals(64, BitOperations.leadingZeros(0));
+		assertEquals(43, BitOperations.leadingZeros(1234567)); 
+		assertEquals(54, BitOperations.leadingZeros(1000)); 
+		
 	}
 	
 	@Test 
 	void isHappyNumberTest() {
-		//TODO
+		assertEquals(true, Numbers.isHappyNumber(556655));
+		assertEquals(true, Numbers.isHappyNumber(745565));
+		assertEquals(true, Numbers.isHappyNumber(818818));
+		assertEquals(true, Numbers.isHappyNumber(222222));
+		assertEquals(false, Numbers.isHappyNumber(001001));
+		assertEquals(false, Numbers.isHappyNumber(456789));
+		assertEquals(false, Numbers.isHappyNumber(852369));		
+		assertEquals(false, Numbers.isHappyNumber(8756));
+		assertEquals(false, Numbers.isHappyNumber(7894561));
+		
+	}
+	@Test
+	void onesInNumberTest() {
+		assertEquals(1, BitOperations.onesInNumber(1));
+		assertEquals(0, BitOperations.onesInNumber(0));
+		assertEquals(1, BitOperations.onesInNumber(64)); 
+		assertEquals(64, BitOperations.onesInNumber(-1));
+		assertEquals(10, BitOperations.onesInNumber(10236045)); 
 	}
 
 }
-
-

@@ -16,7 +16,25 @@ static public int getNdigits(long number) {
  * and sum of first three digits equals the sum of last three digits
  */
 static public boolean isHappyNumber(int number) {
-	//TODO
-	return false;
+	boolean HappyNum = false;
+	if (getNdigits(number) == 6) {
+		int leftSum = 0;
+		int rightSum = 0;
+		for (int i = 1; i <= 999999; i = i* 10) {
+			if (i < 1000) {
+				rightSum = (rightSum + (number / i)) % 10;
+			} else {
+				leftSum = (leftSum + (number / i)) % 10;
+			}
+		}
+		if (leftSum == rightSum) {
+			HappyNum = true;
+		}
+	}
+	return HappyNum ;
 }
+
+
 }
+
+    
