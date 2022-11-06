@@ -20,8 +20,8 @@ static public boolean isHappyNumber(int number) {
 	if (getNdigits(number) == 6) {
 		int leftSum = 0;
 		int rightSum = 0;
-		for (int i = 1; i <= 999999; i = i* 10) {
-			if (i < 1000) {
+		for (int i = 1; i <= 100000; i = i* 10) {
+			if (i <= 100) {
 				rightSum = (rightSum + (number / i)) % 10;
 			} else {
 				leftSum = (leftSum + (number / i)) % 10;
