@@ -118,12 +118,14 @@ class PrimitivesTest {
 	}
 	
 	@Test
+	@Disabled
 	void addNumberTest () {
 		int[] expected = {4, 67, -88, 3333, 0, 77 };
 		assertArrayEquals(expected, MyArrays.addsNumber(new int[] {4, 67, -88, 3333, 0}, 77));
 		
 	}
 	@Test
+	@Disabled
 	void removeNumberTest() {
 		int[] expected1 = {0, 1, 2, 3, 4, 5};
 		assertArrayEquals(expected1, MyArrays.removeNumber(new int[] {0, 2, 1, 2, 3, 4, 5}, 1));
@@ -131,22 +133,23 @@ class PrimitivesTest {
 		assertArrayEquals(expected2, MyArrays.removeNumber(new int[] {11, 22, 33, 44, 55, 66, 7}, 6));
 		int[] expected3 = {9, 8, 7, 6, 5};
 		assertArrayEquals(expected3, MyArrays.removeNumber(new int[] {9, 8, 7, 6, 5}, 6));
-		int[] expected4 = {1, 2, 3, 4, 5};
-		assertArrayEquals(expected4, MyArrays.removeNumber(new int[] {1, 2, 3, 4, 5}, 0));
+//		int[] expected4 = {1, 2, 3, 4, 5};
+//		assertArrayEquals(expected4, MyArrays.removeNumber(new int[] {1, 2, 3, 4, 5}, 0));
 	}
 	@Test
+	@Disabled
 	void insertSortedTest() {
-		int[] expectedResult = {1,2,3,4,5};
-		assertArrayEquals(expectedResult, MyArrays.insertSorted(new int[] {2, 1, 5, 4}, 3));
-		int[] expectedResult1 = {-2,-1, 0, 1, 2};
-		assertArrayEquals(expectedResult1, MyArrays.insertSorted(new int[] {2, -1, 0, -2}, 1));
-		int[] expectedResult2 = {-8, -1, 0, 0, 52, 55, 66, 81};
-		assertArrayEquals(expectedResult2, MyArrays.insertSorted(new int[] {52, -8, 66, 81, -1, 55, 0}, 0));
-		int[] expectedResult3 = {1,1,1,1,1};
-		assertArrayEquals(expectedResult3, MyArrays.insertSorted(new int[] {1, 1, 1, 1}, 1));
+		int[] expectedResult = {1, 2, 3, 4, 5};
+		assertArrayEquals(expectedResult, MyArrays.insertSorted(new int[] {1, 2, 4, 5}, 3));
+		int[] expectedResult1 = {1, 2, 3, 4, 5};
+		assertArrayEquals(expectedResult1, MyArrays.insertSorted(new int[] {2, 3, 4, 5}, 1));
+		int[] expectedResult2 = {1, 2, 3, 4, 5};
+		assertArrayEquals(expectedResult2, MyArrays.insertSorted(new int[] {1, 2, 3, 4}, 5));
+		
 	}
 	
 	@Test
+	@Disabled
 	void verifyTest() {
 		assertTrue(IsraelIdentity.verify(123456782));
 		assertFalse(IsraelIdentity.verify(012345672));
@@ -155,11 +158,63 @@ class PrimitivesTest {
 	}
 	
 	@Test
+	@Disabled
 	void generateRandomIdTest() {
 		
 		for (int i = 0; i < 10; i++) {
 			assertTrue(IsraelIdentity.verify(IsraelIdentity.generateRandomId()));
 		}
 	}
+	
+	@Test
+	
+	void isOneSwapTestFalse() {
+		
+		int ar1[] = { 1, 2, 3, 10, -1, 5, 6 };
+		int ar2[] = { 5, 1, 2, 4, 6, 10 };
+		int ar3[] = { 1, 5, 2, 4, 3, 10 };
+		int ar4[] = { 1, 3, 2, 5, 4, 10, 8 };
+		int ar5[] = {1, 3, 20, 4, 5, 6, 10};
+		int ar6[] = {1, 3, 20, 4, 5, 11, 2};
+		
+		assertFalse(MyArrays.isOneSwapForSorted(ar1));
+		assertFalse(MyArrays.isOneSwapForSorted(ar2));
+		assertFalse(MyArrays.isOneSwapForSorted(ar3));
+		assertFalse(MyArrays.isOneSwapForSorted(ar4));
+		assertFalse(MyArrays.isOneSwapForSorted(ar5));
+		assertFalse(MyArrays.isOneSwapForSorted(ar6));		
+	}
+	@Test
+	void isOneSwapTestTrue() {
+		
+		int ar1[] = { 10, 2, 3, 4, 1 };
+		int ar2[] = { 1, 2, 4, 3, 5, 10 };
+		int ar3[] = { 1, 2, 3, 10, 5, 4 };
+		int ar4[] = { 1, 5, 3, 4, 2, 10 };
+		int ar5[] = { 1, 2, 3, 4, 10, 5 };
+		int ar6[] = { 2, 1, -3, 4, 5, 10 };
+		int ar7[] = { 3, 2, 1, 4, 5, 6 };
+		
+		assertTrue(MyArrays.isOneSwapForSorted(ar1));
+		assertTrue(MyArrays.isOneSwapForSorted(ar2));
+		assertTrue(MyArrays.isOneSwapForSorted(ar3));
+		assertTrue(MyArrays.isOneSwapForSorted(ar4));
+		assertTrue(MyArrays.isOneSwapForSorted(ar5));
+		assertTrue(MyArrays.isOneSwapForSorted(ar6));
+		assertTrue(MyArrays.isOneSwapForSorted(ar7));		
+	}
+	@Test
+	void binarySearchTest() {
+		assertEquals(5, MyArrays.binarySearch(new int[] {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, 5));
+		assertEquals(0, MyArrays.binarySearch(new int[] {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, 0));
+		assertEquals(9, MyArrays.binarySearch(new int[] {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, 9));
+		assertEquals(3, MyArrays.binarySearch(new int[] {0, 0, 0, 1, 4, 5, 6, 7, 8, 9}, 1));
+		assertEquals(-9, MyArrays.binarySearch(new int[] {0, 1, 2, 3, 4, 5, 6, 7, 9, 9}, 8));
+		assertEquals(-1, MyArrays.binarySearch(new int[] {3, 3, 3, 3, 3, 3, 8, 9, 10}, 2));
+		assertEquals(-5, MyArrays.binarySearch(new int[] {1, 2, 3, 4, 6, 7, 8, 9, 10}, 5));
+		assertEquals(-1, MyArrays.binarySearch(new int[] {1, 4, 4, 4, 6, 6, 6, 9, 10}, 0));
+
+	}
+	
 
 }

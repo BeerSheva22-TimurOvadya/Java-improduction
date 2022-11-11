@@ -38,21 +38,26 @@ public class Numbers {
 		} while (number != 0);
 		return res;
 	}
-	
+
 	public static int[] getDigits(int number) {
-		int res[] = new int [getNdigits(number)];
-		for(int i = res.length -1; i >= 0; i--) {
+		int res[] = new int[getNdigits(number)];
+		for (int i = res.length - 1; i >= 0; i--) {
 			res[i] = number % 10;
 			number /= 10;
 		}
 		return res;
 	}
-	public static int  getNumberFromDigits(int[] digits) {
+
+	public static int getNumberFromDigits(int[] digits) {
 		int res = 0;
 		for (int i = 0; i < digits.length; i++) {
 			res = res * 10 + digits[i];
 		}
 		return res;
 	}
-	
+
+	public static long getRandomNumber(long min, long max) {
+		return (long) (min + Math.random() * (max - min + 1));
+
+	}
 }
