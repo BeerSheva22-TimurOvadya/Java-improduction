@@ -105,7 +105,52 @@ public class MyArrays {
 		return res;
 	}
 
-	public static boolean isOneSwapForSorted(int array[]) {
+	public static boolean isOneSwapForSorted(int[] array) {
+		boolean res = false;
+		int first = 0;
+		int second = 0;
+		int сount = 0;
+		
+		for (int i = 1; i < array.length; i++) {
+			if (array[i] < array[i - 1]) {
+				if (сount == 0) {					
+					first = i - 1;
+					second = i;				
+				} else {					
+					second = i;	
+				}
+				сount ++;
+			}
+		}		
+		if (сount > 0 && сount < 3) {
+			res = checkSort(array, array[second], first) && checkSort(array, array[first], second);
+		} else {
+			res = false;
+		}		
+		return res;
+	}
+	
+	private static boolean checkSort(int[] array, int num, int pos) {
+		boolean res = false;
+		if (pos < array.length - 1 && pos > 0 ) {
+			if (num > (array[pos - 1] -1) && num < (array[pos + 1] +1)) {
+				res = true;
+			}
+		} else {
+			if (pos == 0) {
+				if (num < array[pos + 1]+1) {
+					res = true;
+				}
+			} else {
+				if (num > array[pos - 1]-1) {
+					res = true;
+				}
+			}
+		}
+		return res;
+	}
+	
+	public static boolean isOneSwapForSorted_OtherMethod(int array[]) {
 
 		int сount = 0;
 		int sort[] = new int[array.length];
@@ -124,6 +169,8 @@ public class MyArrays {
 
 	}
 
+	
+	
 	public static int[] bubbleSort(int[] array) {
 
 		boolean isSorted = false;

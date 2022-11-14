@@ -185,6 +185,14 @@ class PrimitivesTest {
 		assertFalse(MyArrays.isOneSwapForSorted(ar5));
 		assertFalse(MyArrays.isOneSwapForSorted(ar6));
 		assertFalse(MyArrays.isOneSwapForSorted(ar7));
+		
+		assertFalse(MyArrays.isOneSwapForSorted_OtherMethod(ar1));
+		assertFalse(MyArrays.isOneSwapForSorted_OtherMethod(ar2));
+		assertFalse(MyArrays.isOneSwapForSorted_OtherMethod(ar3));
+		assertFalse(MyArrays.isOneSwapForSorted_OtherMethod(ar4));
+		assertFalse(MyArrays.isOneSwapForSorted_OtherMethod(ar5));
+		assertFalse(MyArrays.isOneSwapForSorted_OtherMethod(ar6));
+		assertFalse(MyArrays.isOneSwapForSorted_OtherMethod(ar7));
 	}
 	@Test
 	void isOneSwapTestTrue() {
@@ -203,7 +211,15 @@ class PrimitivesTest {
 		assertTrue(MyArrays.isOneSwapForSorted(ar4));
 		assertTrue(MyArrays.isOneSwapForSorted(ar5));
 		assertTrue(MyArrays.isOneSwapForSorted(ar6));
-		assertTrue(MyArrays.isOneSwapForSorted(ar7));		
+		assertTrue(MyArrays.isOneSwapForSorted(ar7));	
+		
+		assertTrue(MyArrays.isOneSwapForSorted_OtherMethod(ar1));
+		assertTrue(MyArrays.isOneSwapForSorted_OtherMethod(ar2));
+		assertTrue(MyArrays.isOneSwapForSorted_OtherMethod(ar3));
+		assertTrue(MyArrays.isOneSwapForSorted_OtherMethod(ar4));
+		assertTrue(MyArrays.isOneSwapForSorted_OtherMethod(ar5));
+		assertTrue(MyArrays.isOneSwapForSorted_OtherMethod(ar6));
+		assertTrue(MyArrays.isOneSwapForSorted_OtherMethod(ar7));
 	}
 	@Test
 	 void binarySearchFirstTest() {
