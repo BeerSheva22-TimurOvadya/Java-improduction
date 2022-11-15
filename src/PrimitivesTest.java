@@ -1,3 +1,4 @@
+import static org.junit.Assert.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Disabled;
@@ -167,7 +168,7 @@ class PrimitivesTest {
 	}
 	
 	@Test
-	
+	@Disabled
 	void isOneSwapTestFalse() {
 		
 		int ar1[] = { 1, 2, 3, 10, -1, 5, 6 };
@@ -175,8 +176,9 @@ class PrimitivesTest {
 		int ar3[] = { 5, 1, 2, 4, 6, 10 };
 		int ar4[] = { 1, 5, 2, 4, 3, 10 };
 		int ar5[] = { 1, 3, 2, 5, 4, 10, 8 };
-		int ar6[] = {1, 3, 20, 4, 5, 6, 10};
-		int ar7[] = {1, 3, 20, 4, 5, 11, 2};
+		int ar6[] = { 1, 3, 20, 4, 5, 6, 10};
+		
+		
 		
 		assertFalse(MyArrays.isOneSwapForSorted(ar1));
 		assertFalse(MyArrays.isOneSwapForSorted(ar2));
@@ -184,17 +186,12 @@ class PrimitivesTest {
 		assertFalse(MyArrays.isOneSwapForSorted(ar4));
 		assertFalse(MyArrays.isOneSwapForSorted(ar5));
 		assertFalse(MyArrays.isOneSwapForSorted(ar6));
-		assertFalse(MyArrays.isOneSwapForSorted(ar7));
 		
-		assertFalse(MyArrays.isOneSwapForSorted_OtherMethod(ar1));
-		assertFalse(MyArrays.isOneSwapForSorted_OtherMethod(ar2));
-		assertFalse(MyArrays.isOneSwapForSorted_OtherMethod(ar3));
-		assertFalse(MyArrays.isOneSwapForSorted_OtherMethod(ar4));
-		assertFalse(MyArrays.isOneSwapForSorted_OtherMethod(ar5));
-		assertFalse(MyArrays.isOneSwapForSorted_OtherMethod(ar6));
-		assertFalse(MyArrays.isOneSwapForSorted_OtherMethod(ar7));
+		
+		
 	}
 	@Test
+	@Disabled
 	void isOneSwapTestTrue() {
 		
 		int ar1[] = { 10, 2, 3, 4, 1 };
@@ -204,6 +201,9 @@ class PrimitivesTest {
 		int ar5[] = { 1, 2, 3, 4, 10, 5 };
 		int ar6[] = { 2, 1, -3, 4, 5, 10 };
 		int ar7[] = { 3, 2, 1, 4, 5, 6 };
+		int ar8[] = { 1, 2, 2, 3 ,3, 4 ,4, 4, 3, 5 };
+		int ar9[] = { 1, 2, 4, 3, 3, 3, 5  };
+		
 		
 		assertTrue(MyArrays.isOneSwapForSorted(ar1));
 		assertTrue(MyArrays.isOneSwapForSorted(ar2));
@@ -212,27 +212,26 @@ class PrimitivesTest {
 		assertTrue(MyArrays.isOneSwapForSorted(ar5));
 		assertTrue(MyArrays.isOneSwapForSorted(ar6));
 		assertTrue(MyArrays.isOneSwapForSorted(ar7));	
+		assertTrue(MyArrays.isOneSwapForSorted(ar8));	
+		assertTrue(MyArrays.isOneSwapForSorted(ar9));	
 		
-		assertTrue(MyArrays.isOneSwapForSorted_OtherMethod(ar1));
-		assertTrue(MyArrays.isOneSwapForSorted_OtherMethod(ar2));
-		assertTrue(MyArrays.isOneSwapForSorted_OtherMethod(ar3));
-		assertTrue(MyArrays.isOneSwapForSorted_OtherMethod(ar4));
-		assertTrue(MyArrays.isOneSwapForSorted_OtherMethod(ar5));
-		assertTrue(MyArrays.isOneSwapForSorted_OtherMethod(ar6));
-		assertTrue(MyArrays.isOneSwapForSorted_OtherMethod(ar7));
+		
 	}
 	@Test
+	@Disabled
 	 void binarySearchFirstTest() {
 		 int ar[] = {1,1,1,2,2,2,2,2,2,2,2,2,2,4,20,40};
-		 assertEquals(-14, MyArrays.binarySearchNew(ar, 3));
-		 assertEquals(3, MyArrays.binarySearchNew(ar, 2));
-		 assertEquals(-1, MyArrays.binarySearchNew(ar, 0));
-		 assertEquals(0, MyArrays.binarySearchNew(ar, 1));
-		 assertEquals(-16, MyArrays.binarySearchNew(ar, 25));
-		 assertEquals(-17, MyArrays.binarySearchNew(ar, 45));
+		 assertEquals(-14, MyArrays.binarySearch(ar, 3));
+		 assertEquals(3, MyArrays.binarySearch(ar, 2));
+		 assertEquals(-1, MyArrays.binarySearch(ar, 0));
+		 assertEquals(13, MyArrays.binarySearch(ar, 4));
+		 assertEquals(0, MyArrays.binarySearch(ar, 1));
+		 assertEquals(-16, MyArrays.binarySearch(ar, 25));
+		 assertEquals(-17, MyArrays.binarySearch(ar, 45));
 	 }
 	
 	@Test
+	@Disabled
 	void bubbleSortTest() {
 		int[] expectedResult = {-9, -8, -7, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
 		assertArrayEquals(expectedResult, MyArrays.bubbleSort(new int[] {1, 8, -7, -6, 4, -5, 3, -2, -1, 0, -9, 2, -3, 5, -4, 6, 7, -8, 9}));
@@ -248,6 +247,35 @@ class PrimitivesTest {
 		assertArrayEquals(expectedResult3, MyArrays.bubbleSort(new int[] {0, 0, 0, 4, 4, 4, 4, 4, 4, 1, 2, 3, 1, 1, 1, 1, 1, 1}));
 
 	}
+	@Test
+	void isSum2Test() {
 		
+		assertEquals( MyArrays.isSum2(new short[]{1, 2, 3, 4, 5}, (short) 6), true);
+		assertEquals( MyArrays.isSum2(new short[]{1, 2, 3, 4, 5}, (short) 3), true);
+		assertEquals( MyArrays.isSum2(new short[]{0, 0, 0, 0, 0, 0 , 0, 0}, (short) 0), true);
+		assertEquals( MyArrays.isSum2(new short[]{888, 555, 333, 21, 7, 1}, (short) 889), true);
+		assertEquals( MyArrays.isSum2(new short[]{2,2,2,2,2,2,2,2}, (short) 4), true);
+		
+		assertEquals( MyArrays.isSum2(new short[]{1, 2, 3, 4, 5}, (short) 10), false);
+		assertEquals( MyArrays.isSum2(new short[]{1, 2, 3, 4, 5}, (short) 11), false);
+		assertEquals( MyArrays.isSum2(new short[]{9, 9, 9, 9, 9, 9 , 9, 9}, (short) 9), false);
+		assertEquals( MyArrays.isSum2(new short[]{888, 555, 333, 21, 7, 1}, (short) 900), false);
+		
+	}
+	@Test
+	void isSum2_secondMethod() {
+		
+		assertEquals( MyArrays.isSum2_secondMethod(new short[]{1, 2, 3, 4, 5}, (short) 6), true);
+		assertEquals( MyArrays.isSum2_secondMethod(new short[]{1, 2, 3, 4, 5}, (short) 3), true);
+//		assertEquals( MyArrays.isSum2_secondMethod(new short[]{0, 0, 0, 0, 0, 0 , 0, 0}, (short) 0), true);
+		assertEquals( MyArrays.isSum2_secondMethod(new short[]{888, 555, 333, 21, 7, 1}, (short) 889), true);
+		assertEquals( MyArrays.isSum2_secondMethod(new short[]{2,2,2,2,2,2,2,2}, (short) 4), true);
+		
+		assertEquals( MyArrays.isSum2_secondMethod(new short[]{1, 2, 3, 4, 5}, (short) 10), false);
+		assertEquals( MyArrays.isSum2_secondMethod(new short[]{1, 2, 3, 4, 5}, (short) 11), false);
+		assertEquals( MyArrays.isSum2_secondMethod(new short[]{9, 9, 9, 9, 9, 9 , 9, 9}, (short) 9), false);
+		assertEquals( MyArrays.isSum2_secondMethod(new short[]{888, 555, 333, 21, 7, 1}, (short) 900), false);
+		
+	}	
 
 }
