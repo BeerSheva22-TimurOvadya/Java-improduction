@@ -198,11 +198,14 @@ public class MyArrays {
 		int i;
 		short[] rem = new short[sum + 1];
 		boolean res = false;
-		for (i = 0; i < sum; i++)
+		for (i = 0; i < sum; i++) {
 			rem[i] = 0;
-		for (i = 0; i < array.length; i++)
-			if (array[i] < sum)
+		}
+		for (i = 0; i < array.length; i++) {
+			if (array[i] < sum) {
 				rem[array[i] % sum]++;
+			}
+		}
 		for (i = 1; i < sum / 2; i++) {
 			if (rem[i] > 0 && rem[sum - i] > 0) {
 				res = true;
@@ -211,15 +214,17 @@ public class MyArrays {
 		}
 		if (i >= sum / 2) {
 			if (sum % 2 == 0) {
-				if (rem[sum / 2] > 1)
+				if (rem[sum / 2] > 1) {
 					res = true;
-				else
+				} else {
 					res = false;
+				}
 			} else {
-				if (rem[sum / 2] > 0 && rem[sum - sum / 2] > 0)
+				if (rem[sum / 2] > 0 && rem[sum - sum / 2] > 0) {
 					res = true;
-				else
+				} else {
 					res = false;
+				}
 			}
 		}
 		return res;
