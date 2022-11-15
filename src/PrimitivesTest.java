@@ -255,12 +255,13 @@ class PrimitivesTest {
 		assertEquals( MyArrays.isSum2(new short[]{0, 0, 0, 0, 0, 0 , 0, 0}, (short) 0), true);
 		assertEquals( MyArrays.isSum2(new short[]{888, 555, 333, 21, 7, 1}, (short) 889), true);
 		assertEquals( MyArrays.isSum2(new short[]{2,2,2,2,2,2,2,2}, (short) 4), true);
+		assertEquals( MyArrays.isSum2(new short[]{-2,2,2,2,2,-2,2,2}, (short) -4), true);
 		
 		assertEquals( MyArrays.isSum2(new short[]{1, 2, 3, 4, 5}, (short) 10), false);
 		assertEquals( MyArrays.isSum2(new short[]{1, 2, 3, 4, 5}, (short) 11), false);
 		assertEquals( MyArrays.isSum2(new short[]{9, 9, 9, 9, 9, 9 , 9, 9}, (short) 9), false);
 		assertEquals( MyArrays.isSum2(new short[]{888, 555, 333, 21, 7, 1}, (short) 900), false);
-		
+		assertEquals( MyArrays.isSum2(new short[]{-2,2,2,2,2,-2,2,2}, (short) -5), false);
 	}
 	@Test
 	void isSum2_secondMethod() {
