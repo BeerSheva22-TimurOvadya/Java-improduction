@@ -196,7 +196,7 @@ public class MyArrays {
 
 	public static boolean isSum2_secondMethod(short array[], short sum) {
 		int i;
-		short[] rem = new short[sum + 1];
+		short[] rem = new short[sum];
 		boolean res = false;
 		for (i = 0; i < sum; i++) {
 			rem[i] = 0;
