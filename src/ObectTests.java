@@ -28,5 +28,20 @@ class ObectTests {
 		
 	}
 	
+	
+	@Test
+	void isAnagramtTest() {
+		String testi = "Hello World 123";
+		
+		short ar[] = {1, 2, 5, 4, 5, 100, 9, 0x7fff, 1};
+		assertTrue(MyArrays.isSum2(ar, (short)101));
+		assertTrue(MyArrays.isSum2(ar, (short)11));
+		assertTrue(MyArrays.isSum2(ar, (short)14));
+		
+		assertFalse(MyArrays.isSum2(ar, (short)8));
+		assertFalse(MyArrays.isSum2(ar, (short)2000));
+		assertTrue(MyArrays.isSum2(ar, (short)(0x7fff + 1)));
+		
+	}
 
 }
