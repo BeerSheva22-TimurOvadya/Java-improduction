@@ -31,16 +31,18 @@ class ObectTests {
 	
 	@Test
 	void isAnagramtTest() {
-		String testi = "Hello World 123";
+		String str1 = "Hello World 123";
+		String str2 = "World Hello 321";
 		
 		short ar[] = {1, 2, 5, 4, 5, 100, 9, 0x7fff, 1};
 		assertTrue(MyArrays.isSum2(ar, (short)101));
 		assertTrue(MyArrays.isSum2(ar, (short)11));
 		assertTrue(MyArrays.isSum2(ar, (short)14));
+		assertTrue(MyArrays.isSum2(ar, (short)(0x7fff + 1)));
 		
 		assertFalse(MyArrays.isSum2(ar, (short)8));
 		assertFalse(MyArrays.isSum2(ar, (short)2000));
-		assertTrue(MyArrays.isSum2(ar, (short)(0x7fff + 1)));
+		
 		
 	}
 
