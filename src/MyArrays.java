@@ -1,5 +1,5 @@
 import java.util.Arrays;
-import java.util.HashSet;
+
 
 public class MyArrays {
 	/**
@@ -173,26 +173,26 @@ public class MyArrays {
 	 */
 
 	// First method
-	public static boolean isSum2(short array[], short sum) {
-		boolean res = false;
-		if (pairs(array, sum)) {
-			res = true;
-		} else {
-			res = false;
-		}
-		return res;
-	}
-
-	static public boolean pairs(short array[], short sum) {
-		for (int i = 0; i < array.length - 1; i++) {
-			for (int j = (i + 1); j < array.length; j++) {
-				if (array[i] + array[j] == sum) {
-					return true;
-				}
-			}
-		}
-		return false;
-	}
+//	public static boolean isSum2(short array[], short sum) {
+//		boolean res = false;
+//		if (pairs(array, sum)) {
+//			res = true;
+//		} else {
+//			res = false;
+//		}
+//		return res;
+//	}
+//
+//	static public boolean pairs(short array[], short sum) {
+//		for (int i = 0; i < array.length - 1; i++) {
+//			for (int j = (i + 1); j < array.length; j++) {
+//				if (array[i] + array[j] == sum) {
+//					return true;
+//				}
+//			}
+//		}
+//		return false;
+//	}
 
 	public static boolean isSum2_secondMethod(short array[], short sum) {
 		int i;
@@ -229,5 +229,26 @@ public class MyArrays {
 		}
 		return res;
 	}
-
+	
+	
+	public static boolean isSum2(short array[], short sum) {
+		
+		boolean helper[] = new boolean [sum >= 0 ? sum + 1 : 0x7fff + 1];
+		boolean res = false;
+		int index = 0;
+		while (index < array.length   && !res) {
+			short diff = (short) (sum - array[index]);
+			if (diff >= 0) {
+				if(helper [diff]) {
+					res = true;
+				} else {
+					helper[array[index]] = true;
+				}
+			}
+			index++;
+		}
+		return res;
+	}
+	
+	
 }
