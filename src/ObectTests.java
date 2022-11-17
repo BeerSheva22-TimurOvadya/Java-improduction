@@ -21,7 +21,7 @@ class ObectTests {
 	void stringTest() {
 		String hello = "hello";
 		char[] helloAr = hello.toCharArray();
-		assertEquals('h',helloAr[0]);
+		assertEquals('h', helloAr[0]);
 		System.out.println((byte)helloAr[0]);
 		assertEquals(5, hello.length());
 		
@@ -30,20 +30,37 @@ class ObectTests {
 	
 	
 	@Test
-	void isAnagramtTest() {
+	void isAnagramtTestTrue() {
 		String str1 = "Hello World 123";
 		String str2 = "World Hello 321";
-		
-		short ar[] = {1, 2, 5, 4, 5, 100, 9, 0x7fff, 1};
-		assertTrue(MyArrays.isSum2(ar, (short)101));
-		assertTrue(MyArrays.isSum2(ar, (short)11));
-		assertTrue(MyArrays.isSum2(ar, (short)14));
-		assertTrue(MyArrays.isSum2(ar, (short)(0x7fff + 1)));
-		
-		assertFalse(MyArrays.isSum2(ar, (short)8));
-		assertFalse(MyArrays.isSum2(ar, (short)2000));
+		String str3 = "321dlroW ol leH";
 		
 		
+		
+		assertTrue(Strings.isAnagram(str1, str2));
+		assertTrue(Strings.isAnagram(str1, str3));
+		assertTrue(Strings.isAnagram(str2, str3));
 	}
+	
+	@Test
+	void isAnagramtTestFalse() {
+		String str1 = "Hello World 123";
+		String str2 = "HelloWorld123";
+		String str3 = "hello world 123";
+		String str4 = "Hell World 123";
+		String str5 = "HELLO WORLD 123";
+		String str6 = "qwertyQWERTYqwe";
+		
+		
+		assertFalse(Strings.isAnagram(str1, str2));
+		assertFalse(Strings.isAnagram(str1, str3));
+		assertFalse(Strings.isAnagram(str1, str2));
+		assertFalse(Strings.isAnagram(str1, str4));
+		assertFalse(Strings.isAnagram(str1, str5));
+		assertFalse(Strings.isAnagram(str1, str6));
+	}
+		
+		
+	
 
 }
