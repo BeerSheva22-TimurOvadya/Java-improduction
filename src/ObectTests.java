@@ -25,6 +25,7 @@ class ObectTests {
 		System.out.println((byte)helloAr[0]);
 		assertEquals(5, hello.length());
 		
+		
 	}
 	
 

@@ -9,6 +9,7 @@ public class Strings {
 	 * 2. the same symbols just in different order
 	 */
 public static boolean isAnagram(String str1, String str2) {
+	//TODO
 	return false;
 }
 }
