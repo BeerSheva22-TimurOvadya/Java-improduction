@@ -172,65 +172,6 @@ public class MyArrays {
 	 * @return true if array contains two numbers, sum of which equals a given sum
 	 */
 
-	// First method
-//	public static boolean isSum2(short array[], short sum) {
-//		boolean res = false;
-//		if (pairs(array, sum)) {
-//			res = true;
-//		} else {
-//			res = false;
-//		}
-//		return res;
-//	}
-//
-//	static public boolean pairs(short array[], short sum) {
-//		for (int i = 0; i < array.length - 1; i++) {
-//			for (int j = (i + 1); j < array.length; j++) {
-//				if (array[i] + array[j] == sum) {
-//					return true;
-//				}
-//			}
-//		}
-//		return false;
-//	}
-
-	public static boolean isSum2_secondMethod(short array[], short sum) {
-		int i;
-		short[] rem = new short[sum];
-		boolean res = false;
-		for (i = 0; i < sum; i++) {
-			rem[i] = 0;
-		}
-		for (i = 0; i < array.length; i++) {
-			if (array[i] < sum) {
-				rem[array[i] % sum]++;
-			}
-		}
-		for (i = 1; i < sum / 2; i++) {
-			if (rem[i] > 0 && rem[sum - i] > 0) {
-				res = true;
-				break;
-			}
-		}
-		if (i >= sum / 2) {
-			if (sum % 2 == 0) {
-				if (rem[sum / 2] > 1) {
-					res = true;
-				} else {
-					res = false;
-				}
-			} else {
-				if (rem[sum / 2] > 0 && rem[sum - sum / 2] > 0) {
-					res = true;
-				} else {
-					res = false;
-				}
-			}
-		}
-		return res;
-	}
-	
-	
 	public static boolean isSum2(short array[], short sum) {
 		
 		boolean helper[] = new boolean [sum >= 0 ? sum + 1 : 0x7fff + 1];
