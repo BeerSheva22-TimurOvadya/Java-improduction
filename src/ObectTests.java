@@ -1,10 +1,12 @@
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 class ObectTests {
 
 	@Test
+	@Disabled
 	void wrapperTest() {
 		
 		Integer a = 11;		
@@ -18,6 +20,7 @@ class ObectTests {
 		assertTrue(c.equals(d));
 	}
 	@Test
+	@Disabled
 	void stringTest() {
 		String hello = "hello";
 		char[] helloAr = hello.toCharArray();
@@ -31,9 +34,9 @@ class ObectTests {
 	
 	@Test
 	void isAnagramtTestTrue() {
-		String str1 = "Hello World 123";
-		String str2 = "World Hello 321";
-		String str3 = "321dlroW ol leH";
+		String str1 = "Hello World 123™";
+		String str2 = "World Hello 321™";
+		String str3 = "321dlroW ol leH™";
 		
 		
 		
@@ -45,7 +48,7 @@ class ObectTests {
 	@Test
 	void isAnagramtTestFalse() {
 		String str1 = "Hello World 123";
-		String str2 = "HelloWorld123";
+		String str2 = "Hello World 123©";
 		String str3 = "hello world 123";
 		String str4 = "Hell World 123";
 		String str5 = "HELLO WORLD 123";
