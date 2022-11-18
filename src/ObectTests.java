@@ -33,20 +33,20 @@ class ObectTests {
 	
 	
 	@Test
-	void isAnagramtTestTrue() {
+	void isAnagramt_1_TestTrue() {
 		String str1 = "Hello World 123™";
 		String str2 = "World Hello 321™";
 		String str3 = "321dlroW ol leH™";
 		
 		
 		
-		assertTrue(Strings.isAnagram(str1, str2));
-		assertTrue(Strings.isAnagram(str1, str3));
-		assertTrue(Strings.isAnagram(str2, str3));
+		assertTrue(Strings.isAnagram_1(str1, str2));
+		assertTrue(Strings.isAnagram_1(str1, str3));
+		assertTrue(Strings.isAnagram_1(str2, str3));
 	}
 	
 	@Test
-	void isAnagramtTestFalse() {
+	void isAnagramt_1_TestFalse() {
 		String str1 = "Hello World 123";
 		String str2 = "Hello World 123©";
 		String str3 = "hello world 123";
@@ -55,15 +55,44 @@ class ObectTests {
 		String str6 = "qwertyQWERTYqwe";
 		
 		
-		assertFalse(Strings.isAnagram(str1, str2));
-		assertFalse(Strings.isAnagram(str1, str3));
-		assertFalse(Strings.isAnagram(str1, str2));
-		assertFalse(Strings.isAnagram(str1, str4));
-		assertFalse(Strings.isAnagram(str1, str5));
-		assertFalse(Strings.isAnagram(str1, str6));
+		assertFalse(Strings.isAnagram_1(str1, str2));
+		assertFalse(Strings.isAnagram_1(str1, str3));
+		assertFalse(Strings.isAnagram_1(str1, str2));
+		assertFalse(Strings.isAnagram_1(str1, str4));
+		assertFalse(Strings.isAnagram_1(str1, str5));
+		assertFalse(Strings.isAnagram_1(str1, str6));
 	}
 		
+	@Test
+	void isAnagramt_2_TestTrue() {
+		String str1 = "Hello World 123™";
+		String str2 = "World Hello 321™";
+		String str3 = "321dlroW ol leH™";
 		
+		
+		
+		assertTrue(Strings.isAnagram_2(str1, str2));
+		assertTrue(Strings.isAnagram_2(str1, str3));
+		assertTrue(Strings.isAnagram_2(str2, str3));
+	}
+	
+	@Test
+	void isAnagramt_2_TestFalse() {
+		String str1 = "Hello World 123";
+		String str2 = "Hello World 123©";
+		String str3 = "hello world 123";
+		String str4 = "Hell World 123";
+		String str5 = "HELLO WORLD 123";
+		String str6 = "qwertyQWERTYqwe";
+		
+		
+		assertFalse(Strings.isAnagram_2(str1, str2));
+		assertFalse(Strings.isAnagram_2(str1, str3));
+		assertFalse(Strings.isAnagram_2(str1, str2));
+		assertFalse(Strings.isAnagram_2(str1, str4));
+		assertFalse(Strings.isAnagram_2(str1, str5));
+		assertFalse(Strings.isAnagram_2(str1, str6));
+	}
 	
 
 }
