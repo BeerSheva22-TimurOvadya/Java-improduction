@@ -1,6 +1,9 @@
-import java.util.Arrays;
-
 public class Strings {
+
+	private static final int MIN_VALUE = Byte.MIN_VALUE;
+
+	private static final int MAX_VALUE = Byte.MAX_VALUE + 1;
+
 	/**
 	 * 
 	 * @param str
@@ -8,46 +11,25 @@ public class Strings {
 	 * @return true if str2 is an anagram of str1 complexity 0[N] two passes 1. the
 	 *         same length 2. the same symbols just in different order
 	 */
-
-	// First Method - O(N^2) ?
-	public static boolean isAnagram_1(String str1, String str2) {
+	public static boolean isAnagram(String str1, String str2) {
 		boolean res = true;
-		char symbols[] = str1.toCharArray();
+		char word[] = str1.toCharArray();
 		char anagram[] = str2.toCharArray();
 
-		if (symbols.length != anagram.length) {
-			res = false;
-		}
-		Arrays.sort(anagram);
-		Arrays.sort(symbols);
+		if (str1.length() == str2.length()) {
 
-		for (int i = 0; i < str1.length() && res; i++) {
-			if (symbols[i] != anagram[i]) {
-				res = false;
+			for (int i : word) {
+				if (count(word, i) != count(anagram, i)) {
+					res = false;
+				}
 			}
+		} else {
+			res = false;
 		}
 		return res;
 	}
 
-	// Second Method - O(N^2) ?
-	public static boolean isAnagram_2(String str1, String str2) {
-		boolean res = true;
-		char FirstString[] = str1.toCharArray();
-		char SecondString[] = str2.toCharArray();
-
-		if (str1.length() != str2.length()) {
-			res = false;
-		}
-
-		for (int i : FirstString) {
-			if (count(FirstString, i) != count(SecondString, i)) {
-				res = false;
-			}
-		}
-		return res;
-	}
-
-	private static Object count(char[] str, int i) {
+	private static int count(char[] str, int i) {
 		int count = 0;
 		for (int num : str) {
 			if (num == i) {
@@ -55,6 +37,39 @@ public class Strings {
 			}
 		}
 		return count;
-	}		
+	}
+
+//	second method 
+	public static boolean isAnagram_2(String str1, String str2) {
+
+		int r = 0;
+		for (int i = 0; i < str1.length(); i++) {
+			r = r ^ str1.charAt(i);
+		}
+		for (int i = 0; i < str2.length(); i++) {
+			r = r ^ str2.charAt(i);
+		}
+		return r == 0 ? true : false;
+	}
+
 	
+	
+	
+	public static void sortStringNumbers(String[] array) {
+		byte[] helper = new byte[MAX_VALUE - MIN_VALUE];
+		for (int i = 0; i < array.length; i++) {
+			helper[Byte.parseByte(array[i]) - MIN_VALUE]++;
+		}
+		int count = 0;
+		Integer i = (int) MIN_VALUE;
+		while (i < MAX_VALUE && array.length > count) {
+			while (helper[i - MIN_VALUE] > 0) {
+				array[count] = i.toString();
+				helper[i - MIN_VALUE]--;
+				count++;
+			}
+			i++;
+		}
+	}
+
 }
