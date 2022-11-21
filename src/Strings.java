@@ -12,47 +12,28 @@ public class Strings {
 	 *         same length 2. the same symbols just in different order
 	 */
 	public static boolean isAnagram(String str1, String str2) {
-		boolean res = true;
-		char word[] = str1.toCharArray();
-		char anagram[] = str2.toCharArray();
-
-		if (str1.length() == str2.length()) {
-
-			for (int i : word) {
-				if (count(word, i) != count(anagram, i)) {
-					res = false;
-				}
+		int count = 0;
+		boolean res = false;
+		if (str2.length() == str1.length()) {
+			int[] helper = new int[Character.MAX_VALUE];
+			for (int i = 0; i < str2.length(); i++) {
+				helper[(int) str1.charAt(i)]--;
+				helper[(int) str2.charAt(i)]++;
 			}
-		} else {
-			res = false;
+			
+			do {
+				count++;
+			} while (count < helper.length && helper[count] == 0);
+
+			if (count == Character.MAX_VALUE) {
+				res = true;
+			} else {
+				res = false;
+			}
 		}
 		return res;
 	}
 
-	private static int count(char[] str, int i) {
-		int count = 0;
-		for (int num : str) {
-			if (num == i) {
-				count++;
-			}
-		}
-		return count;
-	}
-
-//	second method 
-	public static boolean isAnagram_2(String str1, String str2) {
-
-		int r = 0;
-		for (int i = 0; i < str1.length(); i++) {
-			r = r ^ str1.charAt(i);
-		}
-		for (int i = 0; i < str2.length(); i++) {
-			r = r ^ str2.charAt(i);
-		}
-		return r == 0 ? true : false;
-	}
-
-	
 	
 	
 	public static void sortStringNumbers(String[] array) {

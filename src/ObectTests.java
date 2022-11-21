@@ -51,28 +51,7 @@ class ObectTests {
 		assertFalse(Strings.isAnagram(word, "Hello World© 123 Hello World© 123 Hello World© 123"));
 	}
 
-	@Test
-
-	void isAnagramt_2_Test() {
-		String word = "Hello World© 123";
-		assertTrue(Strings.isAnagram_2(word, "Hello World© 123"));
-		assertTrue(Strings.isAnagram_2(word, "321 ©dlroW olleH"));
-		assertTrue(Strings.isAnagram_2(word, "World olelH© 231"));
-		assertTrue(Strings.isAnagram_2(word, "2 drlllWoo©He1 3"));
-
-		assertFalse(Strings.isAnagram_2(word, ""));
-		assertFalse(Strings.isAnagram_2(word, "1Hello World© 123"));
-		assertFalse(Strings.isAnagram_2(word, "Hello World 123"));
-//		assertFalse(Strings.isAnagram_2(word, "hello world© 123"));
-//		assertFalse(Strings.isAnagram_2(word, "HELLO WORLD© 123"));
-//		assertFalse(Strings.isAnagram_2(word, "HelloWorld©123"));
-		assertFalse(Strings.isAnagram_2(word, "Qwert Yqwert 123"));
-		assertFalse(Strings.isAnagram_2(word, "Hello World™ 123"));
-		assertFalse(Strings.isAnagram_2(word, "HHHeeellllllooo    WWWooorrrlllddd©©©   111222333"));
-		assertFalse(Strings.isAnagram_2(word, "HellWor23"));
-		assertFalse(Strings.isAnagram_2(word, "Hello World© 123 Hello World© 123"));
-//		assertFalse(Strings.isAnagram_2(word, "Hello World© 123 Hello World© 123 Hello World© 123"));
-	}
+	
 
 	@Test
 	void sortStringNumbersTest() {
@@ -96,5 +75,6 @@ class ObectTests {
 		Strings.sortStringNumbers(array4);
 		assertArrayEquals(new String[] { "-128", "-127", "-111", "-100", "-10", "-1", "0", "1" }, array4);
 	}
+	
 
 }
