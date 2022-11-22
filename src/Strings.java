@@ -85,7 +85,7 @@ public class Strings {
 		return "([\\d]|[\\d][\\d]|[01][\\d][\\d]|2[0-4][\\d]|25[0-5])";
 	}
 	
-// first method
+
 	public static String ipV4() { 
 		
 		return "(" + ipV4Octet() + "\\.){3}" + ipV4Octet();
