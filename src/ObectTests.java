@@ -32,28 +32,28 @@ class ObectTests {
 	}
 
 	@Test
+	@Disabled
 	void isAnagramtTest() {
-		String word = "Hello World© 123";
-		assertTrue(Strings.isAnagram(word, "Hello World© 123"));
-		assertTrue(Strings.isAnagram(word, "321 ©dlroW olleH"));
-		assertTrue(Strings.isAnagram(word, "World olelH© 231"));
-		assertTrue(Strings.isAnagram(word, "2 drlllWoo©He1 3"));
+		String word = "Hello World 123";
+		assertTrue(Strings.isAnagram(word, "Hello World 123"));
+		assertTrue(Strings.isAnagram(word, "321 dlroW olleH"));
+		assertTrue(Strings.isAnagram(word, "World olelH 231"));
+		assertTrue(Strings.isAnagram(word, "2 drlllWooHe1 3"));
 
 		assertFalse(Strings.isAnagram(word, ""));
-		assertFalse(Strings.isAnagram(word, "1Hello World© 123"));
-		assertFalse(Strings.isAnagram(word, "Hello World 123"));
-		assertFalse(Strings.isAnagram(word, "hello world© 123"));
-		assertFalse(Strings.isAnagram(word, "HELLO WORLD© 123"));
-		assertFalse(Strings.isAnagram(word, "HelloWorld©123"));
+		assertFalse(Strings.isAnagram(word, "1Hello World 123"));
+		assertFalse(Strings.isAnagram(word, "Hallo World 123"));
+		assertFalse(Strings.isAnagram(word, "hello world 123"));
+		assertFalse(Strings.isAnagram(word, "HELLO WORLD 123"));
+		assertFalse(Strings.isAnagram(word, "HelloWorld123"));
 		assertFalse(Strings.isAnagram(word, "Qwert Yqwert 123"));
 		assertFalse(Strings.isAnagram(word, "HellWor23"));
-		assertFalse(Strings.isAnagram(word, "HHHeeellllllooo    WWWooorrrlllddd©©©   111222333"));
-		assertFalse(Strings.isAnagram(word, "Hello World© 123 Hello World© 123 Hello World© 123"));
+		assertFalse(Strings.isAnagram(word, "HHHeeellllllooo    WWWooorrrlllddd   111222333"));
+		assertFalse(Strings.isAnagram(word, "Hello World 123 Hello World 123 Hello World 123"));
 	}
 
-	
-
 	@Test
+	@Disabled
 	void sortStringNumbersTest() {
 		String[] array0 = { "0", "0", "0", "0", "0", "0", "0", "0" };
 		Strings.sortStringNumbers(array0);
@@ -75,6 +75,61 @@ class ObectTests {
 		Strings.sortStringNumbers(array4);
 		assertArrayEquals(new String[] { "-128", "-127", "-111", "-100", "-10", "-1", "0", "1" }, array4);
 	}
-	
 
+	@Test
+	@Disabled
+	void javaVariabletest() {
+		assertTrue("java".matches(Strings.javaNameExp()));
+		assertFalse("1java".matches(Strings.javaNameExp()));
+		assertFalse("_".matches(Strings.javaNameExp()));
+		assertTrue("__".matches(Strings.javaNameExp()));
+		assertTrue("java_1_2".matches(Strings.javaNameExp()));
+		assertTrue("$".matches(Strings.javaNameExp()));
+		assertFalse("$ _".matches(Strings.javaNameExp()));
+	}
+
+	@Test
+	void ipV4Octet() {
+		assertTrue("000".matches(Strings.ipV4Octet()));
+		assertTrue("0".matches(Strings.ipV4Octet()));
+		assertTrue("1".matches(Strings.ipV4Octet()));
+		assertTrue("99".matches(Strings.ipV4Octet()));
+		assertTrue("005".matches(Strings.ipV4Octet()));
+		assertTrue("192".matches(Strings.ipV4Octet()));
+		assertTrue("255".matches(Strings.ipV4Octet()));
+		
+		assertFalse("2561".matches(Strings.ipV4Octet()));
+		assertFalse("256".matches(Strings.ipV4Octet()));
+		assertFalse("-88".matches(Strings.ipV4Octet()));
+		assertFalse("_".matches(Strings.ipV4Octet()));
+		assertFalse("__".matches(Strings.ipV4Octet()));
+		assertFalse("$_".matches(Strings.ipV4Octet()));
+		assertFalse(".".matches(Strings.ipV4Octet()));		
+		assertFalse(" ".matches(Strings.ipV4Octet()));
+		assertFalse("".matches(Strings.ipV4Octet()));
+		assertFalse(" 44".matches(Strings.ipV4Octet()));
+
+	}
+	
+	@Test
+	
+	void ipV4Test() {
+		
+		assertTrue("000.000.000.000".matches(Strings.ipV4()));	
+		assertTrue("111.111.111.111".matches(Strings.ipV4()));	
+		assertTrue("255.255.255.255".matches(Strings.ipV4()));		
+		assertTrue("255.255.255.0".matches(Strings.ipV4()));	
+		assertTrue("255.255.0.0".matches(Strings.ipV4()));
+		assertTrue("255.0.0.0".matches(Strings.ipV4()));
+		assertTrue("0.0.0.0".matches(Strings.ipV4()));	
+		assertTrue("192.168.1.1".matches(Strings.ipV4()));	
+		assertTrue("8.8.8.8".matches(Strings.ipV4()));
+		assertTrue("0.0.192.66".matches(Strings.ipV4()) );	
+		
+		assertFalse("192.168.1.1.".matches(Strings.ipV4()));
+		assertFalse("192.258.1.1".matches(Strings.ipV4()));
+		assertFalse("192.168.1".matches(Strings.ipV4()));
+		assertFalse("aaa.168.1.1".matches(Strings.ipV4()));
+		assertFalse("_.168.1.1".matches(Strings.ipV4()));
+	}
 }
