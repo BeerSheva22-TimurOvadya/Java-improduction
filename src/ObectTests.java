@@ -127,7 +127,9 @@ class ObectTests {
 		assertTrue("0.0.192.66".matches(Strings.ipV4()) );	
 		
 		assertFalse("192.168.1.1.".matches(Strings.ipV4()));
+		assertFalse("192.   .1.1.".matches(Strings.ipV4()));
 		assertFalse("192.258.1.1".matches(Strings.ipV4()));
+		assertFalse("192...1.".matches(Strings.ipV4()));
 		assertFalse("192.168.1".matches(Strings.ipV4()));
 		assertFalse("aaa.168.1.1".matches(Strings.ipV4()));
 		assertFalse("_.168.1.1".matches(Strings.ipV4()));
