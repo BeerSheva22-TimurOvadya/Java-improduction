@@ -79,7 +79,7 @@ class ObectTests {
 	}
 
 	@Test
-	
+	@Disabled
 	void javaVariabletest() {
 		assertTrue("java".matches(Strings.javaNameExp()));
 		assertFalse("1java".matches(Strings.javaNameExp()));
@@ -139,7 +139,7 @@ class ObectTests {
 	}
 	
 	@Test
-	
+	@Disabled
 	void ipV4TestTrue() {
 		assertTrue("1.2.3.4".matches(ipV4()));
 		assertTrue("199.249.255.209".matches(ipV4()));
