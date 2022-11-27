@@ -1,7 +1,9 @@
+package telran.text;
 import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
+import static telran.text.Strings.*;
+import org.junit.jupiter.api.*;
+
 
 class ObectTests {
 
@@ -77,18 +79,19 @@ class ObectTests {
 	}
 
 	@Test
-	@Disabled
+	
 	void javaVariabletest() {
 		assertTrue("java".matches(Strings.javaNameExp()));
 		assertFalse("1java".matches(Strings.javaNameExp()));
 		assertFalse("_".matches(Strings.javaNameExp()));
 		assertTrue("__".matches(Strings.javaNameExp()));
-		assertTrue("java_1_2".matches(Strings.javaNameExp()));
+		assertTrue("JaVa_1_2".matches(Strings.javaNameExp()));
 		assertTrue("$".matches(Strings.javaNameExp()));
 		assertFalse("$ _".matches(Strings.javaNameExp()));
 	}
 
 	@Test
+	@Disabled
 	void ipV4Octet() {
 		assertTrue("000".matches(Strings.ipV4Octet()));
 		assertTrue("0".matches(Strings.ipV4Octet()));
@@ -112,7 +115,7 @@ class ObectTests {
 	}
 	
 	@Test
-	
+	@Disabled	
 	void ipV4Test() {
 		
 		assertTrue("000.000.000.000".matches(Strings.ipV4()));	
@@ -134,4 +137,64 @@ class ObectTests {
 		assertFalse("aaa.168.1.1".matches(Strings.ipV4()));
 		assertFalse("_.168.1.1".matches(Strings.ipV4()));
 	}
+	
+	@Test
+	
+	void ipV4TestTrue() {
+		assertTrue("1.2.3.4".matches(ipV4()));
+		assertTrue("199.249.255.209".matches(ipV4()));
+		assertTrue("99.99.99.05".matches(ipV4()));
+	}
+	
+	@Test
+	@Disabled
+	void ipV4Testfalse() {
+		assertFalse("*.19.10.10".matches(ipV4()));
+		assertFalse("256.19.10.10".matches(ipV4()));
+		assertFalse("300.19.10.10".matches(ipV4()));
+		assertFalse("255.19.10".matches(ipV4()));
+		assertFalse("255.19.10.10.".matches(ipV4()));
+		assertFalse("255.19".matches(ipV4()));
+		
+		
+	}
+	
+	@Test
+	
+	void computeExpressionTest() {
+		assertEquals(10.5, computeArithmenticExpression("(2 + (2 + (1 * 2 + 0.5)))", null, null));
+		assertEquals(10.5, computeArithmenticExpression("2 + (2 + 1) * 2 + 0.5", null, null));
+		assertEquals(10.5, computeArithmenticExpression("(2 + (2 + (1) * 2) + 0.5)", null, null));
+		assertEquals(10.5, computeArithmenticExpression("A + 2 + 1 * 2 + 0.5", new double[] {2}, new String[] {"A"}));
+		assertEquals(12.5, computeArithmenticExpression("a + 2 + c + 1 * 2 + 0.5", new double[] {2,1}, new String[] {"a", "c"}));
+		assertEquals(2, computeArithmenticExpression("a + (b / d - c) * e + f", new double[] {2, 3, 1, 5, 0, 2}, new String[] {"a", "b","c" ,"d" ,"e" ,"f" ,}));
+		
+		
+		assertTrue(Double.isNaN(computeArithmenticExpression("2 + (2 + 1)) * 2 + 0.5", null, null)));
+		assertTrue(Double.isNaN(computeArithmenticExpression("(2 + (2 + 1 * 2 + 0.5", null, null)));
+		assertTrue(Double.isNaN(computeArithmenticExpression("2 (+ 2 + 1 * 2) + 0.5", null, null)));
+		assertTrue(Double.isNaN(computeArithmenticExpression("2 # ++ 10",  null, null)));
+		assertTrue(Double.isNaN(computeArithmenticExpression("a + 2 + c + 1 * 2 + d23", new double[] {2,1}, new String[] {"a", "c"})));
+		assertTrue(Double.isNaN(computeArithmenticExpression("a + 2 + c + 1d * 2 + ", new double[] {2,1}, new String[] {"a", "c"})));
+		assertTrue(Double.isNaN(computeArithmenticExpression("a+(b-c)^d*f", new double[] {2,5,1,0,4}, new String[] {"a", "b", "c", "d","f"})));
+	}
+	
+	@Test
+    public void checkBracesTest() {
+        assertTrue(checkBraces("()"));        
+        assertTrue(checkBraces("(33(123)333)"));    
+        assertTrue(checkBraces("((()))"));
+        assertTrue(checkBraces("(ass(2zx(qwe)wer)wer)"));
+        
+        assertFalse(checkBraces("("));
+        assertFalse(checkBraces(")"));
+        assertFalse(checkBraces(")(")); 
+        assertFalse(checkBraces("(()"));
+        assertFalse(checkBraces("())"));
+        
+    }
+	
+	
+ 
+    
 }
