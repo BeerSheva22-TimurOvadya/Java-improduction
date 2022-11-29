@@ -168,7 +168,7 @@ class ObectTests {
 		assertEquals(10.5, computeArithmenticExpression("A + 2 + 1 * 2 + 0.5", new double[] {2}, new String[] {"A"}));
 		assertEquals(12.5, computeArithmenticExpression("a + 2 + c + 1 * 2 + 0.5", new double[] {2,1}, new String[] {"a", "c"}));
 		assertEquals(2, computeArithmenticExpression("a + (b / d - c) * e + f", new double[] {2, 3, 1, 5, 0, 2}, new String[] {"a", "b","c" ,"d" ,"e" ,"f" ,}));
-		
+		assertEquals(40, computeArithmenticExpression("$+2-$d*10", new  double[]{5, 3}, new String[]{"$", "$d"}));
 		
 		assertTrue(Double.isNaN(computeArithmenticExpression("2 + (2 + 1)) * 2 + 0.5", null, null)));
 		assertTrue(Double.isNaN(computeArithmenticExpression("(2 + (2 + 1 * 2 + 0.5", null, null)));
