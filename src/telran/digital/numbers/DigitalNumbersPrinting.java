@@ -12,8 +12,8 @@ public class DigitalNumbersPrinting {
 			switch ((int) (number / Math.pow(10, i - 1))) {
 			
 			case 0: res = symvol(res, zero(interval, width, height)); break;
-			case 1:	res = symvol(res, one(interval, width, height));	break;
-			case 2:	res = symvol(res, two(interval, width, height));	break;
+			case 1:	res = symvol(res, one(interval, width, height)); break;
+			case 2:	res = symvol(res, two(interval, width, height)); break;
 			case 3:	res = symvol(res, three(interval, width, height)); break;
 			case 4:	res = symvol(res, four(interval, width, height)); break;
 			case 5:	res = symvol(res, five(interval, width, height)); break;
