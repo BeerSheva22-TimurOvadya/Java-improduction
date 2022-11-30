@@ -24,7 +24,7 @@ public class DigitalNumbersPrinting {
 			
 			}
 			number = number % (int) Math.pow(10, i - 1);
-			interval = 3;
+			interval = 5;
 		}
 		displayStrings(res);
 	} else {
